@@ -35,10 +35,13 @@ class SingleUser extends Component {
           showFailure: true,
           failure_msg: res.message
         });
+        setTimeout(() => {
+          this.setState({
+            showFailure: false,
+            failure_Msg: ""
+          });
+        }, 2000);
       }
-      this.setState({
-        user: res.data.data
-      });
     });
   }
 
@@ -117,7 +120,7 @@ class SingleUser extends Component {
         {this.state.showSuccess ? (
           <SuccessMsg msg={this.state.success_msg} />
         ) : null}
-        {this.state.showSuccess ? (
+        {this.state.showFailure ? (
           <FailureMsg msg={this.state.failure_msg} />
         ) : null}
       </div>

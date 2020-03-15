@@ -1,0 +1,3 @@
+export const TOGGLE_MOBILE_NAV = "TOGGLE_MOBILE_NAV";
+export const HIDE_MOBILE_NAV = "HIDE_MOBILE_NAV";
+export const TOGGLE_LOADER = "TOGGLE_LOADER";

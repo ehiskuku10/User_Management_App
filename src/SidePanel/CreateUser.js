@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import EditUserForm from "../Components/EditUserForm";
 import { createUser } from "../API";
 import { SuccessMsg, FailureMsg } from "../Components/ResponseMessage";
+import { toggleLoader } from "../Reducers/Effects";
+import { connect } from "react-redux";
 
 class CreateUser extends Component {
   constructor(props) {
@@ -15,18 +17,26 @@ class CreateUser extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    createUser(e)
-      .then(res => {
-        console.log(res);
-        if (res.status === 201) {
-          this.helperMethod();
-        } else {
+    this.props.loaderToggler(true);
+
+    createUser(e).then(res => {
+      this.props.loaderToggler(false);
+      console.log(res);
+      if (res.status === 201) {
+        this.helperMethod();
+      } else {
+        this.setState({
+          showFailure: true,
+          failure_Msg: res.message
+        });
+        setTimeout(() => {
           this.setState({
-            showFailure: true,
-            failure_Msg: res.message
+            showFailure: false,
+            failure_Msg: ""
           });
-        }
-      })
+        }, 2000);
+      }
+    });
   }
 
   helperMethod() {
@@ -44,11 +54,19 @@ class CreateUser extends Component {
       <div>
         <h3>Create Account</h3>
         <EditUserForm text="Create" submit={this.onSubmit.bind(this)} />
-        {this.state.showSuccess ? <SuccessMsg msg={this.state.success_Msg}/> : null}
-        {this.state.showFailure ? <FailureMsg msg={this.state.failure_Msg}/> : null}
+        {this.state.showSuccess ? (
+          <SuccessMsg msg={this.state.success_Msg} />
+        ) : null}
+        {this.state.showFailure ? (
+          <FailureMsg msg={this.state.failure_Msg} />
+        ) : null}
       </div>
     );
   }
 }
 
-export default CreateUser;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  loaderToggler: option => dispatch(toggleLoader(option))
+});
+
+export default connect(null, mapDispatchToProps)(CreateUser);

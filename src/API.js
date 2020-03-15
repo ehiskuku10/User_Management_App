@@ -1,4 +1,6 @@
 import axios from "axios";
+// https://kuku-user-management-app.herokuapp.com
+// http://127.0.0.1:5050
 
 export const allUsers = () => {
   return axios
