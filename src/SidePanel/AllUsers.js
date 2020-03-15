@@ -21,14 +21,14 @@ class AllUser extends Component {
         this.setState({
           users: res.data.data
         });
-        setTimeout(() => {
-          this.props.history.push("/user/add");
-        }, 1000);
       } else {
         this.setState({
           showFailure: true,
           failure_Msg: res.message
         });
+        setTimeout(() => {
+          this.props.history.push("/user/add");
+        }, 1000);
       }
     });
   }
