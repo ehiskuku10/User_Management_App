@@ -68,7 +68,13 @@ class SingleUser extends Component {
     removeUser(userId)
       .then(res => {
         if(res.status === 204) {
-          this.helperMethod()
+          this.setState({
+            showSuccess: true,
+            success_msg: "Account Deleted Successfully!"
+          });
+          setTimeout(() => {
+            this.props.history.push("/user/all");
+          }, 1000);
         } else {
           this.setState({
             showFailure: true,

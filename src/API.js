@@ -41,7 +41,9 @@ export const removeUser = userId => {
       "https://kuku-user-management-app.herokuapp.com/user/delete/" + userId
     )
     .then(res => res)
-    .catch(err => err);
+    .catch(err => {
+      return err.response.data;
+    });
 };
 
 export const createUser = e => {
