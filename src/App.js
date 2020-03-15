@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import SideBar from './SideBar'
 import SidePanel from './SidePanel'
-import { Route, withRouter, Switch } from "react-router-dom"
+import { Route, withRouter, Switch, Redirect } from "react-router-dom"
 
 /**
  * Components Import
@@ -24,6 +24,10 @@ class App extends Component {
               path="/user/:userId"
               exact
               component={withRouter(SingleUser)}
+            />
+            <Redirect
+              from="/"
+              to="/user/add"
             />
           </Switch>
         </SidePanel>
