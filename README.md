@@ -1,4 +1,4 @@
-# staff_management_app
+# user_management_app
 
 ## Development Tools
 1. React/Javascript
