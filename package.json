@@ -32,7 +32,7 @@
     "file-loader": "0.11.2",
     "fixed-data-table": "^0.6.4",
     "fs-extra": "3.0.1",
-    "gh-pages": "^1.0.0",
+    "gh-pages": "^1.2.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "^24.5.0",
     "moment": "^2.18.1",
@@ -133,5 +133,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "homepage": "https://ehiskuku10.github.io/ehiskuku10/User_Management_App"
 }
