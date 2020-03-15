@@ -14,7 +14,8 @@ body {
   height: auto;
 }
 
-input, textarea {
+input,
+textarea {
   display: block;
   outline: none;
   width: 100%;
@@ -31,14 +32,14 @@ input[type="submit"],
   color: gold;
   text-transform: uppercase;
   font-weight: 600;
-  -webkit-transition: all .5s;
-  -o-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 #submit:hover {
   color: rgb(255, 255, 255);
-  background-color: rgb(211, 211, 211)
+  background-color: rgb(211, 211, 211);
 }
 
 h3 {
@@ -46,12 +47,14 @@ h3 {
 }
 
 .container {
-  height: 100%;
+  position: relative;
 }
-
 
 .side-bar {
   width: 230px;
+  -webkit-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
   color: #fff;
   background-color: teal;
   height: 100vh;
@@ -59,7 +62,7 @@ h3 {
   padding: 6rem 0;
   left: 0%;
   top: 0%;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .heading {
@@ -101,7 +104,7 @@ h3 {
   position: absolute;
   padding: 2rem 4rem;
   width: calc(100% - 230px);
-  height: 100%;
+  height: auto;
 }
 
 .side-panel h3 {
@@ -154,7 +157,8 @@ span {
   border: none;
 }
 
-.success_msg, .failure_msg {
+.success_msg,
+.failure_msg {
   position: fixed;
   top: 0;
   right: 0;
@@ -170,4 +174,33 @@ span {
 .failure_msg {
   background-color: rgb(172, 45, 119);
 }
-/*# sourceMappingURL=main.9e3f7d61.css.map*/
+
+.mobile-nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: 1px solid tan;
+  font-size: 1.4rem;
+  display: none;
+  padding: 0.5rem 2rem;
+  z-index: 2000;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 640px) {
+  .side-panel {
+    left: auto;
+    width: 100%;
+    padding: 2rem 4rem 2rem 2rem;
+  }
+  .side-panel > div {
+    width: 320px;
+    margin: 7rem auto 0;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=main.6f7d34de.css.map*/
