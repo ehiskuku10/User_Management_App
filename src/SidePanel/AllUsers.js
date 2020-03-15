@@ -16,11 +16,14 @@ class AllUser extends Component {
 
   componentDidMount() {
     allUsers().then(res => {
-      console.log(res)
+      console.log(res);
       if (res.status === 200) {
         this.setState({
           users: res.data.data
         });
+        setTimeout(() => {
+          this.props.history.push("/user/add");
+        }, 1000);
       } else {
         this.setState({
           showFailure: true,
@@ -43,7 +46,9 @@ class AllUser extends Component {
             </li>
           ))}
         </ul>
-        {this.state.showFailure ? <FailureMsg msg={this.state.failure_Msg} /> : null}
+        {this.state.showFailure ? (
+          <FailureMsg msg={this.state.failure_Msg} />
+        ) : null}
       </div>
     );
   }

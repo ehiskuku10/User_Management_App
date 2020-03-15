@@ -86,7 +86,7 @@ class SingleUser extends Component {
   helperMethod() {
     this.setState({
       showSuccess: true,
-      success_msg: "User Created Successfully!"
+      success_msg: "User Updated Successfully!"
     });
     setTimeout(() => {
       this.props.history.push("/user/all");
