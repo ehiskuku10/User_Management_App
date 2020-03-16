@@ -1,6 +1,6 @@
 # Front-end React-App
 
-Front-end React-App is a javascript based app built using the react library. It posesses several features such as authentication, database management and interactions, CRUD operations execution and other implicit features.
+Front-end React-App is a javascript based app built using the react library. It posesses several features such as database management and interactions, CRUD operations execution and other implicit features.
 
 ## Installation and Setup
 
