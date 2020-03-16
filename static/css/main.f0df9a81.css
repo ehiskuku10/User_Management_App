@@ -189,6 +189,8 @@ span {
   border: 1px solid tan;
   font-size: 1.4rem;
   display: none;
+  background-color: #fff;
+  outline: none;
   padding: 0.5rem 2rem;
   z-index: 2000;
 }
@@ -209,4 +211,4 @@ span {
   }
 }
 
-/*# sourceMappingURL=main.f72fcfd3.css.map*/
+/*# sourceMappingURL=main.f0df9a81.css.map*/
