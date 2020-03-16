@@ -30,6 +30,7 @@ input[type="submit"],
   cursor: pointer;
   border: none;
   color: gold;
+  background-color: #f0f0f0;
   text-transform: uppercase;
   font-weight: 600;
   -webkit-transition: all 0.5s;
@@ -211,4 +212,4 @@ span {
   }
 }
 
-/*# sourceMappingURL=main.f0df9a81.css.map*/
+/*# sourceMappingURL=main.80083436.css.map*/
