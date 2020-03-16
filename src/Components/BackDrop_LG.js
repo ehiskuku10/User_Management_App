@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 const BackDropLG = props => {
   const styles = {
     background: "rgba(0, 0, 0, 0.7)",
-    width: "100vw",
-    height: "100vh",
+    width: "100%",
+    height: "100%",
     zIndex: 3000,
     position: "fixed",
     top: 0,

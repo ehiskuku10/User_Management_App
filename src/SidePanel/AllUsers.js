@@ -3,8 +3,10 @@ import { allUsers } from "../API";
 import { Link } from "react-router-dom";
 import UserCard from "../Components/UserCard";
 import { FailureMsg } from "../Components/ResponseMessage";
+import { toggleLoader } from "../Reducers/Effects";
+import { connect } from "react-redux";
 
-class AllUser extends Component {
+class AllUsers extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +17,10 @@ class AllUser extends Component {
   }
 
   componentDidMount() {
+    this.props.loaderToggler(true);
+
     allUsers().then(res => {
+      this.props.loaderToggler(false);
       console.log(res);
       if (res.status === 200) {
         this.setState({
@@ -54,4 +59,9 @@ class AllUser extends Component {
   }
 }
 
-export default AllUser;
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  loaderToggler: option => dispatch(toggleLoader(option))
+});
+
+export default connect(null, mapDispatchToProps)(AllUsers);

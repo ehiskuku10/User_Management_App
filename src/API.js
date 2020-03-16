@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const allUsers = () => {
   return axios
-    .get(`https://kuku-user-management-app.herokuapp.com/user`)
+    .get(`http://127.0.0.1:5050/user`)
     .then(res => res)
     .catch(err => {
       return err.response.data;
@@ -13,7 +13,7 @@ export const allUsers = () => {
 
 export const oneUser = userId => {
   return axios
-    .get(`https://kuku-user-management-app.herokuapp.com/user/${userId}`)
+    .get(`http://127.0.0.1:5050/user/${userId}`)
     .then(res => res)
     .catch(err => {
       return err.response.data;
@@ -22,7 +22,7 @@ export const oneUser = userId => {
 
 export const editUser = (e, userId) => {
   return axios
-    .put("https://kuku-user-management-app.herokuapp.com/user/edit/" + userId, {
+    .put("http://127.0.0.1:5050/user/edit/" + userId, {
       data: {
         firstname: e.target.firstname.value,
         lastname: e.target.lastname.value,
@@ -39,9 +39,7 @@ export const editUser = (e, userId) => {
 
 export const removeUser = userId => {
   return axios
-    .delete(
-      "https://kuku-user-management-app.herokuapp.com/user/delete/" + userId
-    )
+    .delete("http://127.0.0.1:5050/user/delete/" + userId)
     .then(res => res)
     .catch(err => {
       return err.response.data;
@@ -50,7 +48,7 @@ export const removeUser = userId => {
 
 export const createUser = e => {
   return axios
-    .post("https://kuku-user-management-app.herokuapp.com/user/create/", {
+    .post("http://127.0.0.1:5050/user/create/", {
       data: {
         firstname: e.target.firstname.value,
         lastname: e.target.lastname.value,

@@ -3,6 +3,8 @@ import { oneUser, editUser, removeUser } from "../API";
 import UserCard from "../Components/UserCard";
 import EditUserForm from "../Components/EditUserForm";
 import { SuccessMsg, FailureMsg } from "../Components/ResponseMessage";
+import { toggleLoader } from "../Reducers/Effects";
+import { connect } from "react-redux";
 
 const hideBlock = {
   display: "none"
@@ -24,7 +26,10 @@ class SingleUser extends Component {
   componentDidMount() {
     const { match } = this.props;
     const userId = match.params.userId;
+    this.props.loaderToggler(true);
+
     oneUser(userId).then(res => {
+      this.props.loaderToggler(false);
       console.log(res);
       if (res.status === 200) {
         this.setState({
@@ -54,7 +59,10 @@ class SingleUser extends Component {
   onSubmit(e) {
     const userId = e.target.id;
     e.preventDefault();
+    this.props.loaderToggler(true);
+
     editUser(e, userId).then(res => {
+      this.props.loaderToggler(true);
       if (res.status === 201) {
         this.helperMethod();
       } else {
@@ -68,7 +76,10 @@ class SingleUser extends Component {
 
   deleteUser(e) {
     const userId = e.target.id;
+    this.props.loaderToggler(true);
+
     removeUser(userId).then(res => {
+      this.props.loaderToggler(false);
       if (res.status === 204) {
         this.setState({
           showSuccess: true,
@@ -97,9 +108,25 @@ class SingleUser extends Component {
   }
 
   render() {
+    let dob = new Date(this.state.user.dob);
+    dob = dob
+      .toString()
+      .replace(/-/g, "/")
+      .substr(0, 16);
     return (
       <div>
-        <h3>UserID: {this.state.user._id}</h3>
+        <h5>
+          <b>UserID:</b> {this.state.user._id}
+        </h5>
+        <h5>
+          <b>Phone:</b> {this.state.user.phone_no}
+        </h5>
+        <h5>
+          <b>Address:</b> {this.state.user.address}
+        </h5>
+        <h5>
+          <b>DOB:</b> {dob}
+        </h5>
         <UserCard user={this.state.user} />
         <div
           className="btn-block"
@@ -128,4 +155,8 @@ class SingleUser extends Component {
   }
 }
 
-export default SingleUser;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  loaderToggler: option => dispatch(toggleLoader(option))
+});
+
+export default connect(null, mapDispatchToProps)(SingleUser);

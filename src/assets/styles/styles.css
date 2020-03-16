@@ -43,21 +43,26 @@ h3 {
   margin: 1rem;
 }
 
+h5 {
+  margin-left: 10px;
+}
+
 .container {
   position: relative;
+  margin: 0;
 }
 
 .side-bar {
   width: 230px;
-  transition: left .5s;
+  transition: left 0.5s;
   color: #fff;
   background-color: teal;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   padding: 6rem 0;
   left: 0%;
   top: 0%;
-  z-index: 2000;
+  z-index: 2500;
 }
 
 .heading {
@@ -94,9 +99,10 @@ h3 {
 .side-panel {
   left: 230px;
   position: absolute;
-  padding: 2rem 4rem;
+  padding-left: 2rem;
   width: calc(100% - 230px);
   height: auto;
+  top: 70px;
 }
 
 .side-panel h3 {
@@ -145,11 +151,12 @@ span {
 .success_msg,
 .failure_msg {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 30px;
   color: #fff;
   font-size: 12px;
   padding: 10px;
+  z-index: 3000;
 }
 
 .success_msg {
@@ -161,7 +168,7 @@ span {
 }
 
 .mobile-nav {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   border: 1px solid tan;
@@ -177,11 +184,10 @@ span {
   .side-panel {
     left: auto;
     width: 100%;
-    padding: 2rem 4rem 2rem 2rem;
   }
   .side-panel > div {
-    width: 320px;
-    margin: 7rem auto 0;
+    width: 100%;
+    margin: 0;
   }
   .mobile-nav {
     display: block;
