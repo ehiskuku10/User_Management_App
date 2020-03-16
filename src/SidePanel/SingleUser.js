@@ -132,8 +132,17 @@ class SingleUser extends Component {
           className="btn-block"
           style={this.state.displayForm ? hideBlock : null}
         >
-          <button onClick={this.showForm.bind(this)}>Edit</button>
-          <button id={this.state.user._id} onClick={this.deleteUser.bind(this)}>
+          <button
+            style={{ backgroundColor: "#f0f0f0" }}
+            onClick={this.showForm.bind(this)}
+          >
+            Edit
+          </button>
+          <button
+            style={{ backgroundColor: "#f0f0f0" }}
+            id={this.state.user._id}
+            onClick={this.deleteUser.bind(this)}
+          >
             Delete
           </button>
         </div>

@@ -29,6 +29,7 @@ input[type="submit"],
   cursor: pointer;
   border: none;
   color: gold;
+  background-color: #f0f0f0;
   text-transform: uppercase;
   font-weight: 600;
   transition: all 0.5s;
