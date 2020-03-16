@@ -1,8 +1,17 @@
-# user_management_app
+# Front-end React-App
 
-## Development Tools
-1. React/Javascript
-2. CSS
- 
- ## Instructions
-    Run npm install (Server will run on this address -> 127:0.0.1:4000)
+Front-end React-App is a javascript based app built using the react library. It posesses several features such as authentication, database management and interactions, CRUD operations execution and other implicit features.
+
+## Installation and Setup
+
+```cmd
+git clone <remote-repo>
+Run “npm install” to install dependencies
+Run “npm start” to start the application 
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
